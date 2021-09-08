@@ -1,5 +1,18 @@
-const titulo = document.querySelector('h1');
-console.log(titulo);
-console.log(titulo.textContent);
+var paciente = document.querySelector("#primeiro-paciente");
+console.log(paciente);
 
-titulo.textContent = "Nutri";
+var tdPeso = paciente.querySelector(".info-peso");
+
+var peso = tdPeso.textContent;
+
+var tdAltura = paciente.querySelector(".info-altura");
+
+var altura = tdAltura.textContent;
+
+var imc = peso / (altura * altura);
+
+console.log(tdAltura);
+console.log(tdPeso);
+console.log(imc);
+
+
