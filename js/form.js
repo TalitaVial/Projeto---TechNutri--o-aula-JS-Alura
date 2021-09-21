@@ -22,11 +22,14 @@ botaoAdicionar.addEventListener("click", function(event){
   tabela.appendChild(pacienteTr);
 
   form.reset();
-
+  var limpaMensagem = document.querySelector("#msg-erro");
+  limpaMensagem.innerHTML = "";
+  
 });
 
 function exibeMsgErro(erros){
   var ul = document.querySelector("#msg-erro");
+  ul.innerHTML = "";
   erros.forEach(function(erro){
     var li = document.createElement('li');
     li.textContent = erro;
@@ -71,6 +74,10 @@ function montaTd(dado,classe){
 function validaPaciente(paciente){
 
   var erros = [];
+
+  if(paciente.nome.length == 0){
+    erros.push("Preencha nome");
+  }
   
   if (!validaPeso(paciente.peso)){
     erros.push("Peso é Inválido");
@@ -78,6 +85,18 @@ function validaPaciente(paciente){
   
   if(!validaAltura(paciente.altura)){
     erros.push("Altura é Inválida");
+  }
+
+  if(paciente.gordura.length == 0){
+    erros.push("Informe Gordura");
+  }
+
+  if(paciente.peso.length == 0){
+    erros.push("Preencha altura");
+  }
+
+  if(paciente.altura.length == 0){
+    erros.push("Preencha Altura");
   }
 
   return erros;
